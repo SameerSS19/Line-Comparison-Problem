@@ -1,6 +1,7 @@
 package com.linecompareprblm;
 
 import java.util.Scanner;
+import java.lang.*;
 import java.util.lang.*;
 public class LineComparision 
 {
@@ -9,39 +10,53 @@ public class LineComparision
 	
 		System.out.println("Welcome to Line Comparison Computation Program");
 	
-		double x1, x2, y1, y2, LengthofLine,LengthofLine2;    //Declaration
 		
 		Scanner scan = new Scanner(System.in);
-		System.out.println("Enter the value for Line 1");
+		System.out.println("Cordinates of Line First");  //Taking input from user x & y
 		
-		System.out.println("Enter the value of x1");  //Taking input from user x & y
-		x1 = scan.nextDouble();   
-		System.out.println("Enter the value of x2");
-		x2 = scan.nextDouble();
-		System.out.println("Enter the value of y1");
-		y1 = scan.nextDouble();
-		System.out.println("Enter the value of y2");
-		y2 = scan.nextDouble();
-		LengthofLine = Math.sqrt(  (Math.pow((x2-x1),2))  + (Math.pow((y2-y1),2)) );
-		System.out.println(LengthofLine);
+		int x1= scan.nextInt();
+		 int x2= scan.nextInt();
+		 int y1= scan.nextInt();
+		 int y2= scan.nextInt();
+		 System.out.println("Cordinates for line Second");
+		 int x3= scan.nextInt();
+		 int x4= scan.nextInt();
+		 int y3= scan.nextInt();
+		 int y4= scan.nextInt();
+		 
 		
-		System.out.println("Enter the values for Line 2");
-		System.out.println("Enter the value of x1"); //Taking input from user x & y
-		x1 = scan.nextDouble();  
-		System.out.println("Enter the value of x2");
-		x2 = scan.nextDouble();
-		System.out.println("Enter the value of y1");
-		y1 = scan.nextDouble();
-		System.out.println("Enter the value of y2");
-		y2 = scan.nextDouble();
-		LengthofLine2 = Math.sqrt(  (Math.pow((x2-x1),2))  + (Math.pow((y2-y1),2)) );
-		System.out.println("LengthofLine2:" + LengthofLine2);
 		
-		String s1,s2;
-		s1=Double.toString(LengthofLine);
-		s2=Double.toString(LengthofLine2);
-		System.out.println("Equality of two lines:" + s1.equals(s2));
-		System.out.println("Compare of two length is:" +s1.compareTo(s2));
-      }
- }
-
+		LineComparision line = new LineComparision();
+		
+		double line1 =line.length( x1, x2, y1, y2);    //Declaration
+		double line2 = line.length(x3 , x4 , y3 , y4);
+		line.comparision(line1,line2);
+		
+	}
+		
+	void comparision(double line1,double line2) 
+	{	
+		
+		if(line1==line2){  
+			  
+            System.out.println("Lines are equal");  
+        }  
+        else if(line1<line2)  
+        {  
+            System.out.println("Line2 is greater");  
+        } 
+        else   
+        {  
+            System.out.println("Line1 is greater");  
+        }
+			
+	}
+	double length(int x1,int x2,int y1 ,int y2) 
+	{
+		
+		double length1 = (Math.pow(x2-x1, 2) + Math.pow(y2-y1, 2));
+		System.out.println(Math.sqrt(length1));
+		return length1;
+	}
+}
+		
